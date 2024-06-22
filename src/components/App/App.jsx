@@ -11,14 +11,6 @@ export default function App() {
     return savedFeedback ? JSON.parse(savedFeedback) : { good: 0, neutral: 0, bad: 0 };
     });
 
-
-    useEffect(()=>{
-        const storedFeedback = localStorage.getItem("feedback");
-        if(storedFeedback){
-        setFeedback(JSON.parse(storedFeedback));
-        }
-    },[]);
-
     useEffect(() => {
     localStorage.setItem("feedback", JSON.stringify(feedback))
     },[feedback])
